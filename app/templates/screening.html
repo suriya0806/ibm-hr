@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block title %}Resume Screening — HireMind AI{% endblock %}
+
+{% block content %}
+<div class="mb-4">
+    <h3 class="fw-bold text-dark mb-1">AI Resume Screening & Ingestion</h3>
+    <p class="text-muted mb-0">Upload single or batch PDF / DOCX candidate resumes to parse structured profiles via LangGraph and Groq.</p>
+</div>
+
+<!-- Upload Drag & Drop Card -->
+<div class="custom-card mb-4">
+    <div class="card-header-clean">
+        <span><i class="fas fa-file-upload text-primary me-2"></i>Batch Resume Ingestion</span>
+        <span class="badge bg-primary-subtle text-primary">PDF & DOCX Supported</span>
+    </div>
+    <div class="card-body-clean">
+        <div id="resumeDropzone" class="dropzone-area">
+            <input type="file" id="resumeFileInput" multiple accept=".pdf,.docx,.txt" style="display: none;">
+            <div class="dropzone-icon">
+                <i class="fas fa-cloud-upload-alt"></i>
+            </div>
+            <h5 class="fw-semibold text-dark">Drag & Drop Resumes Here</h5>
+            <p class="text-muted small mb-3">or click anywhere in this box to browse files from your computer</p>
+            <span class="badge bg-light text-muted border px-3 py-2">Supports multiple files simultaneously</span>
+        </div>
+
+        <div id="selectedFilesList"></div>
+
+        <div class="mt-3 text-end">
+            <button id="uploadResumesBtn" class="btn btn-primary px-4" disabled>
+                <i class="fas fa-cogs me-1"></i>Run LangGraph Screening Pipeline
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Screened Candidates List -->
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="fw-bold text-dark mb-0">Screened Candidates Database</h5>
+    <div class="d-flex gap-2">
+        <a href="/matching" class="btn btn-sm btn-outline-primary">
+            <i class="fas fa-balance-scale me-1"></i>Proceed to JD Matching
+        </a>
+        <button onclick="loadCandidates()" class="btn btn-sm btn-outline-secondary">
+            <i class="fas fa-sync-alt me-1"></i>Refresh
+        </button>
+    </div>
+</div>
+
+<div id="candidatesListContainer">
+    <div class="text-center py-4 text-muted">
+        <div class="spinner-border spinner-border-sm text-primary me-2" role="status"></div>
+        Loading candidates...
+    </div>
+</div>
+
+<!-- Candidate Profile Deep Dive Modal -->
+<div class="modal fade" id="candidateProfileModal" tabindex="-1" aria-labelledby="candidateProfileModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content border-0 shadow-lg">
+            <div class="modal-header border-bottom">
+                <h5 class="modal-title fw-bold" id="candidateProfileModalTitle">Candidate Profile</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-4" id="candidateProfileModalBody">
+                <!-- Injected via JavaScript -->
+            </div>
+            <div class="modal-footer border-top bg-light">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/screening.js') }}"></script>
+{% endblock %}
+

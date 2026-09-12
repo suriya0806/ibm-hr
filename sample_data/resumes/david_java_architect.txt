@@ -1,0 +1,31 @@
+David Chen
+Email: david.chen@example.com | Phone: +1-555-472-8819 | Location: Seattle, WA
+LinkedIn: linkedin.com/in/davidchen-java | GitHub: github.com/dchen-backend
+
+PROFESSIONAL SUMMARY
+Principal Java Backend Architect with 6.5 years of experience designing distributed enterprise systems, transaction engines, and cloud microservices using Java, Spring Boot, MySQL, and Kafka.
+
+TECHNICAL COMPETENCIES
+- Languages: Java, SQL
+- Frameworks: Spring Boot, Spring Data JPA, Hibernate, Microservices
+- Data Stores: MySQL, Oracle DB, Redis
+- Messaging & Cloud: Apache Kafka, Docker, Kubernetes, AWS
+
+PROFESSIONAL EXPERIENCE
+Lead Java Software Engineer | Pinnacle Financial Systems | Jan 2021 - Present
+- Designed high-throughput microservices in Java 17 and Spring Boot handling 250M+ financial transactions annually.
+- Tuned MySQL database indexes, partitioning, and connection pools, slashing slow queries by 42%.
+- Integrated Apache Kafka event streams for real-time audit logging and fraud alerts.
+
+Senior Java Developer | Enterprise Core Corp | Jul 2017 - Dec 2020
+- Built RESTful services and batch processing pipelines using Spring Boot and JDBC.
+- Managed database schemas and automated testing pipelines.
+
+EDUCATION
+M.S. in Computer Science | University of Washington | 2017
+B.S. in Software Engineering | 2015
+
+PROJECTS
+Core Payment Processing Engine:
+- Built resilient banking checkout pipeline with distributed rollback guarantees.
+

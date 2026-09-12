@@ -1,0 +1,19 @@
+Senior Python & AI Engineer
+Department: AI Solutions
+Experience: 3-5 years
+
+Role Overview:
+We are seeking an experienced Senior Python Engineer to architect and build next-generation agentic AI workflows. You will design stateful workflows using LangGraph and LangChain, implement dense vector retrieval with ChromaDB, and build resilient microservices with Flask / FastAPI.
+
+Core Responsibilities:
+- Design and maintain production LangGraph state machines for enterprise automation.
+- Implement embedding generation and vector search in ChromaDB.
+- Build clean, asynchronous RESTful APIs using Python, SQLAlchemy, and Flask.
+- Mentor junior engineers and conduct rigorous code reviews.
+
+Required Skills:
+- Python, LangGraph, LangChain, Flask, SQLAlchemy, Docker, REST APIs, Git.
+
+Nice-to-Have:
+- ChromaDB, Kubernetes, Groq API, Redis, Celery.
+

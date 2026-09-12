@@ -1,0 +1,174 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard — HireMind AI{% endblock %}
+
+{% block content %}
+<div class="mb-4 d-flex justify-content-between align-items-center">
+    <div>
+        <h3 class="fw-bold text-dark mb-1">Recruiter Dashboard</h3>
+        <p class="text-muted mb-0">Overview of candidate screenings, semantic job matchings, and interview kits.</p>
+    </div>
+    <div class="d-flex gap-2">
+        <a href="/jobs" class="btn btn-outline-primary">
+            <i class="fas fa-plus me-1"></i>New Job Opening
+        </a>
+        <a href="/screening" class="btn btn-primary">
+            <i class="fas fa-upload me-1"></i>Upload Resumes
+        </a>
+    </div>
+</div>
+
+<!-- Stats Metrics -->
+<div class="row g-3 mb-4">
+    <div class="col-md-3">
+        <div class="stat-card">
+            <div class="stat-icon primary">
+                <i class="fas fa-briefcase"></i>
+            </div>
+            <div>
+                <div class="stat-value">{{ jobs_count }}</div>
+                <div class="stat-label">Active Job Openings</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="stat-card">
+            <div class="stat-icon success">
+                <i class="fas fa-users"></i>
+            </div>
+            <div>
+                <div class="stat-value">{{ candidates_count }}</div>
+                <div class="stat-label">Screened Candidates</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="stat-card">
+            <div class="stat-icon warning">
+                <i class="fas fa-balance-scale"></i>
+            </div>
+            <div>
+                <div class="stat-value">{{ matches_count }}</div>
+                <div class="stat-label">Candidate Evaluations</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="stat-card">
+            <div class="stat-icon secondary">
+                <i class="fas fa-clipboard-list"></i>
+            </div>
+            <div>
+                <div class="stat-value">{{ interviews_count }}</div>
+                <div class="stat-label">Interview Kits Ready</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Architecture & Workflow Banner -->
+<div class="custom-card p-4 mb-4 bg-white border-0 shadow-sm" style="background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);">
+    <div class="row align-items-center">
+        <div class="col-md-8">
+            <span class="badge bg-primary-subtle text-primary mb-2 px-3 py-1">Powered by LangGraph & Groq</span>
+            <h4 class="fw-bold text-dark">Intelligent & Explainable Recruitment Assistant</h4>
+            <p class="text-muted small mb-3">
+                HireMind AI combines dense vector semantic matching (ChromaDB) with structured skill extraction and explainable AI reasoning. No black-box rejection decisions — every candidate gets a transparent, verifiable score with strengths, gaps, and an interview guide.
+            </p>
+            <div class="d-flex gap-3">
+                <a href="/screening" class="btn btn-sm btn-primary">
+                    <i class="fas fa-file-invoice me-1"></i>Start Resume Screening
+                </a>
+                <a href="/matching" class="btn btn-sm btn-outline-secondary">
+                    <i class="fas fa-balance-scale me-1"></i>View Match Leaderboard
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4 text-center d-none d-md-block">
+            <div class="p-3 bg-light rounded border">
+                <div class="fw-bold text-dark small mb-2"><i class="fas fa-network-wired text-primary me-1"></i>LangGraph Workflows</div>
+                <div class="text-muted small text-start ps-3">
+                    <div class="py-1"><i class="fas fa-check text-success me-2"></i>Screening Graph</div>
+                    <div class="py-1"><i class="fas fa-check text-success me-2"></i>Matching & Scoring Graph</div>
+                    <div class="py-1"><i class="fas fa-check text-success me-2"></i>Interview Kit Studio Graph</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Two Column Layout: Recent Candidates & Recent Jobs -->
+<div class="row g-4">
+    <div class="col-md-7">
+        <div class="custom-card h-100">
+            <div class="card-header-clean">
+                <span><i class="fas fa-user-graduate text-primary me-2"></i>Recently Screened Candidates</span>
+                <a href="/screening" class="btn btn-sm btn-link text-decoration-none">View All</a>
+            </div>
+            <div class="card-body-clean">
+                {% if recent_candidates %}
+                    <div class="list-group list-group-flush">
+                        {% for c in recent_candidates %}
+                            <div class="list-group-item bg-transparent px-0 py-2 d-flex justify-content-between align-items-center">
+                                <div>
+                                    <div class="fw-semibold text-dark">{{ c.name }}</div>
+                                    <small class="text-muted">{{ c.email or 'No email' }} • {{ c.total_experience_years or 0 }} yrs exp</small>
+                                </div>
+                                <div class="d-flex gap-2">
+                                    <a href="/matching" class="btn btn-sm btn-outline-primary py-1 px-2">
+                                        <i class="fas fa-balance-scale me-1"></i>Match
+                                    </a>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <div class="text-center py-4 text-muted">
+                        <i class="fas fa-user-slash fa-2x mb-2 opacity-50"></i>
+                        <p class="mb-0">No candidates uploaded yet.</p>
+                        <a href="/screening" class="btn btn-sm btn-primary mt-2">Upload First Resume</a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-5">
+        <div class="custom-card h-100">
+            <div class="card-header-clean">
+                <span><i class="fas fa-briefcase text-secondary me-2"></i>Active Job Openings</span>
+                <a href="/jobs" class="btn btn-sm btn-link text-decoration-none">Manage</a>
+            </div>
+            <div class="card-body-clean">
+                {% if recent_jobs %}
+                    <div class="list-group list-group-flush">
+                        {% for j in recent_jobs %}
+                            <div class="list-group-item bg-transparent px-0 py-2">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <strong class="text-dark">{{ j.title }}</strong>
+                                    <span class="badge bg-light text-dark border">{{ j.department or 'General' }}</span>
+                                </div>
+                                <div class="mt-1">
+                                    {% for s in (j.required_skills or [])[:3] %}
+                                        <span class="skill-pill neutral">{{ s }}</span>
+                                    {% endfor %}
+                                    {% if (j.required_skills or [])|length > 3 %}
+                                        <span class="small text-muted">+{{ (j.required_skills|length) - 3 }}</span>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <div class="text-center py-4 text-muted">
+                        <i class="fas fa-folder-open fa-2x mb-2 opacity-50"></i>
+                        <p class="mb-0">No active job descriptions.</p>
+                        <a href="/jobs" class="btn btn-sm btn-outline-primary mt-2">Add Job Opening</a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

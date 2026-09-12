@@ -1,0 +1,30 @@
+Samantha Hayes
+Email: samantha.hayes@example.com | Phone: +1-555-839-1029 | Location: Austin, TX
+LinkedIn: linkedin.com/in/sam-hayes-dev | GitHub: github.com/samhayes
+
+PROFESSIONAL SUMMARY
+Versatile Full Stack Web Developer with 3.0 years of experience building modern user interfaces in React and robust backend APIs in Node.js and Python Flask. Passionate about responsive design, REST architectures, and cloud deployments.
+
+TECHNICAL SKILLS
+- Frontend: React, JavaScript, HTML5, CSS3, Bootstrap
+- Backend: Python, Flask, Node.js, Express, REST APIs
+- Databases: PostgreSQL, MongoDB, SQLite
+- Tools: Git, Docker, Postman, Webpack
+
+WORK EXPERIENCE
+Full Stack Software Developer | BrightWave Technologies | Mar 2021 - Present
+- Created reactive single-page interfaces using React and Bootstrap, improving page load speed by 25%.
+- Implemented backend REST API endpoints using Python Flask and Node.js.
+- Integrated authentication, authorization, and database CRUD operations with PostgreSQL.
+
+Junior Web Developer | Innovate Labs | Jun 2020 - Feb 2021
+- Maintained client websites and built modular frontend components with HTML, CSS, and vanilla JS.
+
+EDUCATION
+B.S. in Information Technology | University of Texas at Austin | 2020
+
+KEY PROJECTS
+Interactive HR Analytics Dashboard:
+- Built a web portal in React and Flask displaying hiring metrics and candidate progress charts.
+- Configured REST APIs and database schema migrations.
+

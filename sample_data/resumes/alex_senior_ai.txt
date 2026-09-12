@@ -1,0 +1,34 @@
+Alex Mercer
+Email: alex.mercer@example.com | Phone: +1-555-019-2834 | Location: San Francisco, CA
+LinkedIn: linkedin.com/in/alex-mercer-ai | GitHub: github.com/alexmercer-dev
+
+PROFESSIONAL SUMMARY
+Results-driven Senior Python Engineer with 4.5 years of experience architecting LLM-powered applications, multi-agent workflows, and high-performance REST APIs. Expert in LangGraph, LangChain, vector databases (ChromaDB), and containerized deployments.
+
+CORE SKILLS
+- Programming: Python, SQL, Bash
+- AI & LLM: LangGraph, LangChain, Groq API, ChromaDB, Sentence Transformers
+- Frameworks & Tools: Flask, FastAPI, SQLAlchemy, Docker, Git, CI/CD, Linux
+
+PROFESSIONAL EXPERIENCE
+Senior AI Engineer | NeuroTech Systems | Feb 2022 - Present
+- Architected stateful multi-agent pipelines using LangGraph and LangChain, improving workflow accuracy by 38%.
+- Integrated ChromaDB vector collections for dense semantic search over 1M+ technical documents.
+- Built scalable asynchronous REST APIs in Flask and SQLAlchemy serving 50k+ daily queries.
+- Deployed microservices into Docker containers orchestrated with GitHub Actions CI/CD.
+
+Python Backend Developer | Apex Cloud Solutions | Aug 2019 - Jan 2022
+- Developed RESTful APIs in Python and Flask backed by relational database architectures.
+- Optimized database query performance and implemented automated unit test suites.
+
+EDUCATION
+B.S. in Computer Science | University of California, Berkeley | 2019 | GPA: 3.85/4.0
+
+PROJECTS
+Autonomous Document Review Agent:
+- Built a multi-agent system using LangGraph, Python, and ChromaDB to extract, analyze, and summarize legal contracts.
+- Reduced manual screening time by 65%.
+
+CERTIFICATIONS
+- AWS Certified Developer - Associate
+

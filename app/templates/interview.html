@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}AI Interview Studio — HireMind AI{% endblock %}
+
+{% block content %}
+<div class="mb-4">
+    <h3 class="fw-bold text-dark mb-1">AI Interview Studio & Question Generator</h3>
+    <p class="text-muted mb-0">Synthesize deep, candidate-tailored technical questions, resume-claim probes, skill gap validations, and STAR behavioral questions with Groq & LangGraph.</p>
+</div>
+
+<!-- Selection & Trigger Panel -->
+<div class="custom-card p-3 mb-4">
+    <div class="row g-3 align-items-end">
+        <div class="col-md-5">
+            <label class="form-label fw-semibold small text-muted mb-1">Select Job Opening</label>
+            <select id="interviewJobSelect" class="form-select">
+                <option value="">Loading jobs...</option>
+            </select>
+        </div>
+        <div class="col-md-5">
+            <label class="form-label fw-semibold small text-muted mb-1">Select Candidate</label>
+            <select id="interviewCandSelect" class="form-select">
+                <option value="">Loading candidates...</option>
+            </select>
+        </div>
+        <div class="col-md-2">
+            <button id="generateKitBtn" class="btn btn-primary w-100">
+                <i class="fas fa-magic me-1"></i>Generate
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Action Bar (Copy, Print, Export) -->
+<div id="kitActionsBar" class="mb-3 d-flex justify-content-between align-items-center" style="display: none !important;">
+    <div class="small text-muted">
+        <i class="fas fa-lightbulb text-warning me-1"></i>Tip: Questions test both claimed strengths and unverified skill gaps.
+    </div>
+    <div class="d-flex gap-2">
+        <button id="copyMarkdownBtn" class="btn btn-sm btn-outline-secondary">
+            <i class="fas fa-copy me-1"></i>Copy as Markdown
+        </button>
+        <button id="printKitBtn" class="btn btn-sm btn-outline-dark">
+            <i class="fas fa-print me-1"></i>Print / Save PDF
+        </button>
+    </div>
+</div>
+
+<!-- Interview Kit Content View -->
+<div id="interviewKitContainer">
+    <div class="text-center py-5 text-muted">
+        <i class="fas fa-comments fa-3x mb-3 text-secondary opacity-50"></i>
+        <h5>Select a Job and Candidate above, then click Generate to create an Interview Kit</h5>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/interview.js') }}"></script>
+{% endblock %}
+
